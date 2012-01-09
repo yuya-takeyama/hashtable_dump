@@ -7,15 +7,14 @@ Synopsis
 --------
 
 ```php
-<?php
 hashtable_dump(array(1, 2, 3, 4, 5, 6, 7, 8));
 /*
 nTableSize:       8
 nTableMask:       7
-nNumOfElements:   7
-nNextFreeElement: 7
+nNumOfElements:   8
+nNextFreeElement: 8
 pListHead:        0
-pListTail:        6
+pListTail:        7
 **arBuckets:
   0 => [0, NULL]
   1 => [1, NULL]
@@ -24,7 +23,7 @@ pListTail:        6
   4 => [4, NULL]
   5 => [5, NULL]
   6 => [6, NULL]
-  7 => [NULL]
+  7 => [7, NULL]
 */
 ```
 
