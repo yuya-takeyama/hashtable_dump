@@ -45,6 +45,8 @@ PHP_MINFO_FUNCTION(hashtable_dump);
 PHP_FUNCTION(confirm_hashtable_dump_compiled);	/* For testing, remove later. */
 PHP_FUNCTION(hashtable_dump);
 
+void _hashtable_dump_print_key(Bucket *bucket);
+
 /* 
   	Declare any global variables you may need between the BEGIN
 	and END macros here:     

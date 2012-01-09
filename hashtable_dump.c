@@ -184,7 +184,50 @@ PHP_FUNCTION(hashtable_dump)
 	printf("nTableMask: 	  %d\n", array->nTableMask);
 	printf("nNumOfElements:   %d\n", array->nNumOfElements);
 	printf("nNextFreeElement: %ld\n", array->nNextFreeElement);
+
+	printf("pListHead:        ");
+	_hashtable_dump_print_key(array->pListHead);
+	printf("\n");
+	printf("pListTail:        ");
+	_hashtable_dump_print_key(array->pListTail);
+	printf("\n");
+
+	puts("**arBuckets:");
+
+	int i, first;
+	Bucket *bucket;
+	for (i = 0; i < array->nTableSize; i++) {
+		printf("  %d => [", i);
+		bucket = array->arBuckets[i];
+		first = 1;
+		while (1) {
+			if (first) {
+				first = 0;
+			} else {
+				printf(", ");
+			}
+			if (bucket) {
+				_hashtable_dump_print_key(bucket);
+				bucket = bucket->pNext;
+			} else {
+				printf("NULL");
+				break;
+			}
+		}
+		printf("]\n");
+	}
 	return;
+}
+
+void _hashtable_dump_print_key(Bucket *bucket)
+{
+	if (bucket == NULL) {
+		printf("NULL");
+	} else if (bucket->nKeyLength == 0) {
+		printf("%ld", bucket->h);
+	} else {
+		printf("\"%s\"", bucket->arKey);
+	}
 }
 
 /*
