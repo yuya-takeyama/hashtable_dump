@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("hashtable_dump", "for hashtable_dump support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("hashtable_dump", "enable hashtable_dump support", "no");
+
+if (PHP_HASHTABLE_DUMP != "no") {
+	EXTENSION("hashtable_dump", "hashtable_dump.c");
+}
+
