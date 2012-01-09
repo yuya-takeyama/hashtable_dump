@@ -13,9 +13,9 @@ dnl [  --with-hashtable_dump             Include hashtable_dump support])
 
 dnl Otherwise use enable:
 
-dnl PHP_ARG_ENABLE(hashtable_dump, whether to enable hashtable_dump support,
-dnl Make sure that the comment is aligned:
-dnl [  --enable-hashtable_dump           Enable hashtable_dump support])
+PHP_ARG_ENABLE(hashtable_dump, whether to enable hashtable_dump support,
+Make sure that the comment is aligned:
+[  --enable-hashtable_dump           Enable hashtable_dump support])
 
 if test "$PHP_HASHTABLE_DUMP" != "no"; then
   dnl Write more examples of tests here...

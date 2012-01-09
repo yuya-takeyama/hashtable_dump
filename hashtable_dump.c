@@ -40,6 +40,7 @@ static int le_hashtable_dump;
  */
 const zend_function_entry hashtable_dump_functions[] = {
 	PHP_FE(confirm_hashtable_dump_compiled,	NULL)		/* For testing, remove later. */
+	PHP_FE(hashtable_dump, NULL)
 	PHP_FE_END	/* Must be the last line in hashtable_dump_functions[] */
 };
 /* }}} */
@@ -171,6 +172,20 @@ PHP_FUNCTION(confirm_hashtable_dump_compiled)
    follow this convention for the convenience of others editing your code.
 */
 
+PHP_FUNCTION(hashtable_dump)
+{
+	HashTable *array;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "H", &array) == FAILURE) {
+		return;
+	}
+
+	printf("nTableSize:       %d\n", array->nTableSize);
+	printf("nTableMask: 	  %d\n", array->nTableMask);
+	printf("nNumOfElements:   %d\n", array->nNumOfElements);
+	printf("nNextFreeElement: %ld\n", array->nNextFreeElement);
+	return;
+}
 
 /*
  * Local variables:

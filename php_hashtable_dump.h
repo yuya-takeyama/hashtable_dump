@@ -43,6 +43,7 @@ PHP_RSHUTDOWN_FUNCTION(hashtable_dump);
 PHP_MINFO_FUNCTION(hashtable_dump);
 
 PHP_FUNCTION(confirm_hashtable_dump_compiled);	/* For testing, remove later. */
+PHP_FUNCTION(hashtable_dump);
 
 /* 
   	Declare any global variables you may need between the BEGIN
