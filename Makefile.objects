@@ -1,8 +1,0 @@
-hashtable_dump.lo: /home/yuya/dev/c/php-5.3.9/ext/hashtable_dump/hashtable_dump.c
-	$(LIBTOOL) --mode=compile $(CC)  -I. -I/home/yuya/dev/c/php-5.3.9/ext/hashtable_dump $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /home/yuya/dev/c/php-5.3.9/ext/hashtable_dump/hashtable_dump.c -o hashtable_dump.lo 
-$(phplibdir)/hashtable_dump.la: ./hashtable_dump.la
-	$(LIBTOOL) --mode=install cp ./hashtable_dump.la $(phplibdir)
-
-./hashtable_dump.la: $(shared_objects_hashtable_dump) $(HASHTABLE_DUMP_SHARED_DEPENDENCIES)
-	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_hashtable_dump) $(HASHTABLE_DUMP_SHARED_LIBADD)
-
