@@ -194,28 +194,32 @@ PHP_FUNCTION(hashtable_dump)
 
 	puts("**arBuckets:");
 
-	int i, first;
-	Bucket *bucket;
-	for (i = 0; i < array->nTableSize; i++) {
-		printf("  %d => [", i);
-		bucket = array->arBuckets[i];
-		first = 1;
-		while (1) {
-			if (first) {
-				first = 0;
-			} else {
-				printf(", ");
-			}
-			if (bucket) {
-				_hashtable_dump_print_key(bucket);
-				bucket = bucket->pNext;
-			} else {
-				printf("NULL");
-				break;
-			}
-		}
-		printf("]\n");
-	}
+    if (array->nTableMask == 0) {
+        printf(" UNINITIALIZED\n");
+    } else {
+        int i, first;
+        Bucket *bucket;
+        for (i = 0; i < array->nTableSize; i++) {
+            printf("  %d => [", i);
+            bucket = array->arBuckets[i];
+            first = 1;
+            while (1) {
+                if (first) {
+                    first = 0;
+                } else {
+                    printf(", ");
+                }
+                if (bucket) {
+                    _hashtable_dump_print_key(bucket);
+                    bucket = bucket->pNext;
+                } else {
+                    printf("NULL");
+                    break;
+                }
+            }
+            printf("]\n");
+        }
+    }
 	return;
 }
 
